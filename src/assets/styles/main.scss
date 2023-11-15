@@ -1,0 +1,17 @@
+@import "_variables";
+@import "_fonts";
+
+body {
+  margin: 0;
+  font-family: $montserrat;
+  background-color: $gamboge;
+}
+h3 {
+  margin: 8px 0;
+}
+p {
+  margin: 0;
+}
+img {
+  width: 100%;
+}
