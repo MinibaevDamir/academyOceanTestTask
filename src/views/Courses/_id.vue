@@ -146,5 +146,19 @@ export default {
       color: $charcoal-gray;
     }
   }
+  @media screen and (max-width: 568px) {
+    padding: 16px;
+    &__header {
+      flex-direction: column;
+      gap: 16px;
+      &__lesson-topic {
+        font-size: 18px;
+      }
+    }
+    &__content {
+      padding: 8px;
+      border-radius: 8px;
+    }
+  }
 }
 </style>

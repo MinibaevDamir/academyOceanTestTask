@@ -97,5 +97,8 @@ export default {
     gap: 4px;
     font-size: 14px;
   }
+  @media screen and (max-width: 568px) {
+    padding: 16px;
+  }
 }
 </style>
