@@ -4,7 +4,9 @@
       <div class="course__header__lesson-topic">
         {{ currentLesson.lessonTopic }}
       </div>
-      <button class="course__header__dashboard-btn">Go To Dashboard</button>
+      <button class="course__header__dashboard-btn" @click="goToDashboard">
+        Go To Dashboard
+      </button>
     </div>
     <div class="course__content" v-html="currentLesson.textOfLesson"></div>
     <div
@@ -64,17 +66,22 @@ export default {
       if (this.lessonNumber !== this.currentCourse.lessons.length) {
         this.setCurrentLesson(this.lessonNumber + 1);
       } else {
-        this.updateUserScore({
-          courseId: this.courseId,
-          attemptTime: this.attemptTime,
-        });
-        this.$router.push("/dashboard/");
+        this.finishCourse();
       }
     },
     back() {
       this.setCurrentLesson(this.lessonNumber - 1);
     },
-    finishCourse() {},
+    goToDashboard() {
+      this.$router.push("/dashboard");
+    },
+    finishCourse() {
+      this.updateUserScore({
+        courseId: this.courseId,
+        attemptTime: this.attemptTime,
+      });
+      this.goToDashboard();
+    },
   },
   mounted() {
     this.getCurrentCourseData(this.courseId);
@@ -97,7 +104,7 @@ export default {
   flex-direction: column;
   gap: 16px;
   padding: 32px;
-  color: #f5f7f8;
+  color: $neutral-gray;
   &__header,
   &__action-wrapper {
     display: flex;
@@ -111,9 +118,9 @@ export default {
       font-weight: 600;
     }
     &__dashboard-btn {
-      background-color: #8b9e2e;
+      background-color: $moss-green;
       cursor: pointer;
-      color: #f5f7f8;
+      color: $neutral-gray;
       font-size: 14px;
       padding: 12px 16px;
       letter-spacing: 1.25px;
@@ -123,24 +130,20 @@ export default {
     }
   }
   &__content {
-    background: #0f8b8d;
+    background: $dark-cyan;
     padding: 32px;
     border-radius: 32px;
   }
   &__action-wrapper {
     &__next-btn,
     &__back-btn {
-      cursor: pointer;
-      font-size: 14px;
+      @include course_btn();
       padding: 12px 16px;
-      letter-spacing: 1.25px;
       border-radius: 16px;
-      font-weight: 600;
-      border: unset;
     }
-    &__next-btn {
-      background-color: #8b9e2e;
-      color: #f5f7f8;
+    &__back-btn {
+      background-color: $neutral-gray;
+      color: $charcoal-gray;
     }
   }
 }

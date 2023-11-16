@@ -38,13 +38,13 @@ export default {
     width: 100%;
     font-size: 16px;
     font-weight: 500;
-    color: #f5f7f8;
+    color: $neutral-gray;
   }
   &__divider {
     width: 100%;
     margin: 16px 0;
     height: 1px;
-    background-color: #f5f7f8;
+    background-color: $neutral-gray;
   }
   &__courses {
     display: grid;

@@ -64,12 +64,12 @@ export default {
 </script>
 <style lang="scss">
 .course-item {
-  background-color: #0f8b8d;
+  background-color: $dark-cyan;
   padding: 32px;
   display: flex;
   border-radius: 16px;
   flex-direction: column;
-  color: #f5f7f8;
+  color: $neutral-gray;
   gap: 16px;
   &__title {
     font-size: 24px;
@@ -87,15 +87,9 @@ export default {
     align-self: flex-end;
   }
   &__pass-btn {
-    background-color: #8b9e2e;
-    cursor: pointer;
-    color: #f5f7f8;
-    font-size: 14px;
+    @include course_btn();
     padding: 12px 16px;
-    letter-spacing: 1.25px;
     border-radius: 16px;
-    font-weight: 600;
-    border: unset;
   }
   &__user-info {
     display: flex;

@@ -1,6 +1,6 @@
 <template>
   <div class="login__container">
-    <form class="login__form">
+    <form class="login__form" @submit="authorize">
       <span class="login__form__title">Login Form</span>
       <input
         type="email"
@@ -8,9 +8,7 @@
         id="email"
         required
       />
-      <button type="submit" class="login__form__submit-btn" @click="authorize">
-        Submit
-      </button>
+      <button type="submit" class="login__form__submit-btn">Submit</button>
     </form>
   </div>
 </template>
@@ -37,7 +35,7 @@ export default {
     min-height: 100vh;
   }
   &__form {
-    background-color: #0f8b8d;
+    background-color: $dark-cyan;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -50,28 +48,21 @@ export default {
       font-size: 20px;
       font-weight: 500;
       letter-spacing: 1.25px;
-      color: #f5f7f8;
+      color: $neutral-gray;
     }
     &__email-input {
       padding: 8px 12px;
       font-size: 14px;
       font-weight: 500;
       border-radius: 8px;
-      background-color: #f5f7f8;
+      background-color: $neutral-gray;
       outline: none;
       border: unset;
     }
     &__submit-btn {
-      background-color: #8b9e2e;
-      cursor: pointer;
-      color: #f5f7f8;
-      font-size: 14px;
-      padding: 8px;
+      @include course_btn();
       width: 100%;
-      letter-spacing: 1.25px;
       border-radius: 8px;
-      font-weight: 600;
-      border: unset;
     }
   }
 }
