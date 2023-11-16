@@ -61,6 +61,7 @@ export default {
     }
     &__submit-btn {
       @include course_btn();
+      padding: 8px;
       width: 100%;
       border-radius: 8px;
     }
