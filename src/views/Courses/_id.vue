@@ -44,8 +44,7 @@ export default {
   computed: {
     ...mapState(["currentCourse", "userScore"]),
     nextBtnText() {
-      return this.lessonNumber === this.currentCourse.lessons &&
-        this.currentCourse.lessons.length
+      return this.lessonNumber === this.currentCourse.lessons?.length
         ? "Finish Course"
         : "Next Lesson";
     },
@@ -130,7 +129,8 @@ export default {
     }
   }
   &__content {
-    background: $dark-cyan;
+    background-color: $neutral-gray;
+    color: $charcoal-gray;
     padding: 32px;
     border-radius: 32px;
   }

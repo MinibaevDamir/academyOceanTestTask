@@ -18,7 +18,7 @@ export default {
   name: "DashboardView",
   computed: {
     ...mapState(["courses"]),
-    ...mapGetters(["fastestAttempt", "passedCourses"]),
+    ...mapGetters(["passedCourses"]),
   },
   components: { CourseItem },
   // methods: {
